@@ -1,0 +1,46 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-secondary: var(--surface-secondary);
+  --color-foreground: var(--foreground);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary-hover: var(--primary-hover);
+  --color-primary-muted: var(--primary-muted);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-danger: var(--danger);
+  --color-info: var(--info);
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+}
+
+:root {
+  --background: #f6f8f7;
+  --surface: #ffffff;
+  --surface-secondary: #eef3f0;
+  --foreground: #17231d;
+  --muted-foreground: #6b7871;
+  --border: #dce5df;
+  --primary: #16734b;
+  --primary-foreground: #ffffff;
+  --primary-hover: #105d3b;
+  --primary-muted: #dcefe5;
+  --success: #1c8b5a;
+  --warning: #b7791f;
+  --danger: #c84a4a;
+  --info: #3c72a8;
+}
+
+* { border-color: var(--border); }
+html { background: var(--background); }
+body { margin: 0; background: var(--background); color: var(--foreground); font-family: var(--font-geist-sans), Arial, sans-serif; }
+button, input { font: inherit; }
+:focus-visible { outline: 2px solid var(--primary); outline-offset: 2px; }
