@@ -1,11 +1,11 @@
 "use client";
 
 import { Activity, ArrowUpRight, CircleDollarSign, ShoppingCart, Users } from "lucide-react";
-import { AppLogo, ChannelBadge, PageHeader, StatusBadge } from "@/components/app-components";
-import { ProtectedRoute, useAuth } from "@/components/auth-context";
+import { ChannelBadge, PageHeader, StatusBadge } from "@/components/app-components";
+import { ManagementRoute, useAuth } from "@/components/auth-context";
 import { ManagementLayout } from "@/components/management-layout";
 import { Separator } from "@/components/ui";
 
 const metrics = [{ label: "Doanh thu hôm nay", value: "—", icon: CircleDollarSign }, { label: "Đơn hàng", value: "—", icon: ShoppingCart }, { label: "Khách hàng", value: "—", icon: Users }];
 function DashboardContent() { const { user } = useAuth(); return <ManagementLayout><div className="mx-auto max-w-6xl px-4 py-7 sm:px-6"><PageHeader title={`Chào buổi sáng, ${user?.name.split(" ").slice(-1)[0]}`} description="Theo dõi nhanh hoạt động vận hành tại cửa hàng của bạn." action={<StatusBadge status="success">Hệ thống sẵn sàng</StatusBadge>} /><section className="mt-6 grid gap-3 md:grid-cols-3">{metrics.map(({ label, value, icon: Icon }) => <div className="rounded-lg border bg-surface p-4" key={label}><div className="flex items-center justify-between"><span className="text-sm text-muted-foreground">{label}</span><Icon size={17} className="text-primary" /></div><div className="mt-4 text-2xl font-semibold">{value}</div><div className="mt-1 text-xs text-muted-foreground">Chưa kết nối dữ liệu</div></div>)}</section><section className="mt-6 rounded-lg border bg-surface"><div className="flex items-center justify-between p-4"><div><h2 className="text-base font-semibold">Hoạt động gần đây</h2><p className="mt-1 text-xs text-muted-foreground">Theo dõi hoạt động khi các module được kết nối.</p></div><Activity size={18} className="text-muted-foreground" /></div><Separator /><div className="flex flex-col items-center justify-center gap-2 px-6 py-16 text-center"><div className="flex size-10 items-center justify-center rounded-full bg-primary-muted text-primary"><ArrowUpRight size={18} /></div><p className="text-sm font-medium">Sẵn sàng để bắt đầu</p><p className="max-w-sm text-xs leading-5 text-muted-foreground">Dashboard foundation đã được thiết lập. Các module POS, sản phẩm và báo cáo sẽ được bổ sung ở các milestone tiếp theo.</p><ChannelBadge channel="store" /></div></section></div></ManagementLayout>; }
-export default function DashboardPage() { return <ProtectedRoute><DashboardContent /></ProtectedRoute>; }
+export default function DashboardPage() { return <ManagementRoute><DashboardContent /></ManagementRoute>; }
