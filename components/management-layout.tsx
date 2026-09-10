@@ -10,6 +10,18 @@ import { useAuth } from "@/components/auth-context";
 
 const nav = [{ href: "/dashboard", label: "Tổng quan", icon: LayoutDashboard }, { href: "/pos", label: "Bán hàng POS", icon: ShoppingCart }, { href: "#", label: "Đơn hàng", icon: Package }, { href: "/products", label: "Sản phẩm", icon: Coffee }, { href: "/categories", label: "Danh mục", icon: Package }, { href: "/modifier-groups", label: "Nhóm tuỳ chọn", icon: Settings }, { href: "/price-lists", label: "Bảng giá", icon: Store }, { href: "#", label: "Khách hàng", icon: Users }, { href: "#", label: "Báo cáo", icon: BarChart3 }];
 
+export function ManagementPage({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return <main className={`flex w-full flex-col gap-6 p-3 pb-4 sm:p-4 sm:pb-5 lg:p-5 lg:pb-6 ${className}`}>{children}</main>;
+}
+
+export function PageSection({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return <section className={`flex w-full flex-col gap-4 ${className}`}>{children}</section>;
+}
+
+export function ManagementTable({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return <div className={`w-full overflow-x-auto rounded-lg border border-border bg-card ${className}`}>{children}</div>;
+}
+
 export function ManagementLayout({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = React.useState(false);
   const pathname = usePathname();
