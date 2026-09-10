@@ -1,0 +1,11 @@
+import type { CatalogProduct, Category, ModifierGroup, PriceList } from "@/types/catalog";
+
+export const products: CatalogProduct[] = [
+ { id:"p1", sku:"CF-001", name:"Cà phê sữa đá", category:"Cà phê", price:35000, status:"ACTIVE", image:"/thumbnails/coffee.svg", variants:[{name:"Tiêu chuẩn",price:35000,sku:"CF-001"},{name:"Lớn",price:45000,sku:"CF-001-L"}], modifierGroups:["mg1","mg2"], channels:["Tại quầy","Giao hàng"] },
+ { id:"p2", sku:"CF-002", name:"Bạc xỉu", category:"Cà phê", price:39000, status:"ACTIVE", image:"/thumbnails/coffee.svg", variants:[{name:"Tiêu chuẩn",price:39000,sku:"CF-002"}], modifierGroups:["mg1"], channels:["Tại quầy","Giao hàng"] },
+ { id:"p3", sku:"TEA-003", name:"Trà đào cam sả", category:"Trà", price:49000, status:"ACTIVE", image:"/thumbnails/tea.svg", variants:[{name:"Tiêu chuẩn",price:49000,sku:"TEA-003"}], modifierGroups:["mg2"], channels:["Tại quầy","Giao hàng"] },
+ { id:"p4", sku:"CK-004", name:"Bánh croissant", category:"Bánh ngọt", price:29000, status:"INACTIVE", image:"/thumbnails/cake.svg", variants:[{name:"Tiêu chuẩn",price:29000,sku:"CK-004"}], modifierGroups:[], channels:["Tại quầy"] },
+];
+export const categories: Category[] = [{id:"c1",name:"Cà phê",productCount:2,status:"ACTIVE"},{id:"c2",name:"Trà",productCount:1,status:"ACTIVE"},{id:"c3",name:"Bánh ngọt",productCount:1,status:"ACTIVE"},{id:"c4",name:"Topping",productCount:0,status:"INACTIVE"}];
+export const modifierGroups: ModifierGroup[] = [{id:"mg1",name:"Mức đường",type:"SINGLE",required:true,optionCount:3,options:[{id:"o1",name:"100% đường",price:0,active:true},{id:"o2",name:"70% đường",price:0,active:true},{id:"o3",name:"Không đường",price:0,active:true}]},{id:"mg2",name:"Topping",type:"MULTIPLE",required:false,optionCount:3,options:[{id:"o4",name:"Trân châu đen",price:10000,active:true},{id:"o5",name:"Thạch đào",price:12000,active:true},{id:"o6",name:"Kem cheese",price:15000,active:false}]}];
+export const priceLists: PriceList[] = [{id:"pl1",name:"Giá tại quầy",channel:"Tại quầy",status:"ACTIVE",updatedAt:"Hôm nay, 09:15"},{id:"pl2",name:"Giá giao hàng",channel:"Giao hàng",status:"ACTIVE",updatedAt:"Hôm qua, 16:20"},{id:"pl3",name:"Giá khuyến mãi tháng 6",channel:"Chiến dịch",status:"INACTIVE",updatedAt:"12/06/2026"}];
