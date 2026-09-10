@@ -8,7 +8,7 @@ import { AppLogo } from "@/components/app-components";
 import { Button, DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui";
 import { useAuth } from "@/components/auth-context";
 
-const nav = [{ href: "/dashboard", label: "Tổng quan", icon: LayoutDashboard }, { href: "/pos", label: "Bán hàng POS", icon: ShoppingCart }, { href: "#", label: "Đơn hàng", icon: Package }, { href: "#", label: "Sản phẩm", icon: Coffee }, { href: "#", label: "Khách hàng", icon: Users }, { href: "#", label: "Báo cáo", icon: BarChart3 }];
+const nav = [{ href: "/dashboard", label: "Tổng quan", icon: LayoutDashboard }, { href: "/pos", label: "Bán hàng POS", icon: ShoppingCart }, { href: "#", label: "Đơn hàng", icon: Package }, { href: "/products", label: "Sản phẩm", icon: Coffee }, { href: "/categories", label: "Danh mục", icon: Package }, { href: "/modifier-groups", label: "Nhóm tuỳ chọn", icon: Settings }, { href: "/price-lists", label: "Bảng giá", icon: Store }, { href: "#", label: "Khách hàng", icon: Users }, { href: "#", label: "Báo cáo", icon: BarChart3 }];
 
 export function ManagementLayout({ children }: { children: React.ReactNode }) {
   const [open, setOpen] = React.useState(false);
