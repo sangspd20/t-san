@@ -14,6 +14,10 @@ export function ManagementPage({ children, className = "" }: { children: React.R
   return <main className={`flex w-full flex-col gap-6 p-3 pb-4 sm:p-4 sm:pb-5 lg:p-5 lg:pb-6 ${className}`}>{children}</main>;
 }
 
+export function PageContainer({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return <div className={`mx-auto w-full max-w-[1400px] px-3 pb-24 pt-3 sm:px-4 sm:pt-4 lg:px-6 lg:pt-5 ${className}`}>{children}</div>;
+}
+
 export function PageSection({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return <section className={`flex w-full flex-col gap-4 ${className}`}>{children}</section>;
 }
