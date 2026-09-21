@@ -8,7 +8,7 @@ import { AppLogo } from "@/components/app-components";
 import { Button, DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui";
 import { useAuth } from "@/components/auth-context";
 
-const nav = [{ href: "/dashboard", label: "Tổng quan", icon: LayoutDashboard }, { href: "/pos", label: "Bán hàng POS", icon: ShoppingCart }, { href: "#", label: "Đơn hàng", icon: Package }, { href: "/products", label: "Sản phẩm", icon: Coffee }, { href: "/categories", label: "Danh mục", icon: Package }, { href: "/modifier-groups", label: "Nhóm tuỳ chọn", icon: Settings }, { href: "/price-lists", label: "Bảng giá", icon: Store }, { href: "#", label: "Khách hàng", icon: Users }, { href: "#", label: "Báo cáo", icon: BarChart3 }];
+const nav = [{ href: "/dashboard", label: "Tổng quan", icon: LayoutDashboard }, { href: "/pos", label: "Bán hàng POS", icon: ShoppingCart }, { href: "/orders", label: "Đơn hàng", icon: Package }, { href: "/products", label: "Sản phẩm", icon: Coffee }, { href: "/categories", label: "Danh mục", icon: Package }, { href: "/modifier-groups", label: "Nhóm tuỳ chọn", icon: Settings }, { href: "/price-lists", label: "Bảng giá", icon: Store }, { href: "#", label: "Khách hàng", icon: Users }, { href: "#", label: "Báo cáo", icon: BarChart3 }];
 
 export function ManagementPage({ children, className = "" }: { children: React.ReactNode; className?: string }) {
   return <main className={`flex w-full flex-col gap-6 p-3 pb-4 sm:p-4 sm:pb-5 lg:p-5 lg:pb-6 ${className}`}>{children}</main>;
