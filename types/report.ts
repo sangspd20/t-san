@@ -1,0 +1,11 @@
+import type { OrderChannel } from "@/types/order";
+export type ReportRange = "today" | "7d" | "30d";
+export type ReportMetrics = { revenue:number; orders:number; aov:number; discounts:number; fees:number; netRevenue:number; cogs:number; grossProfit:number; margin:number; pending:number; cancelled:number };
+export type ChannelRow = { channel:OrderChannel; orders:number; revenue:number; discount:number; fees:number; netRevenue:number; aov:number; share:number };
+export type ProductRow = { productId:string; name:string; category:string; quantity:number; revenue:number; share:number; cogs:number; profit:number; margin:number };
+export type SalesRow = { label:string; orders:number; revenue:number; discount:number; fees:number; netRevenue:number; aov:number };
+export type ProfitRow = { label:string; revenue:number; discount:number; fees:number; cogs:number; profit:number; margin:number };
+export type DashboardMetrics = ReportMetrics & { channels:ChannelRow[]; products:ProductRow[]; sales:SalesRow[]; recentOrders: import("@/types/order").Order[] };
+export const rangeLabel:Record<ReportRange,string>={today:"Hôm nay","7d":"7 ngày qua","30d":"30 ngày qua"};
+export const formatMoney=(n:number)=>new Intl.NumberFormat("vi-VN").format(Math.round(n))+"đ";
+export const pct=(n:number)=>`${n.toFixed(1)}%`;
