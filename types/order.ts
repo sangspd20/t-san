@@ -1,0 +1,16 @@
+export type OrderChannel = "POS" | "WEB" | "GRAB" | "SHOPEEFOOD" | "BEFOOD" | "XANHSM";
+export type OrderStatus = "NEW" | "ACCEPTED" | "PREPARING" | "READY" | "COMPLETED" | "CANCELLED";
+export type PaymentStatus = "PENDING" | "PAID" | "FAILED" | "REFUNDED";
+export type PaymentMethod = "CASH" | "BANK_TRANSFER" | "CARD" | "ONLINE" | "OTHER";
+export type OrderItemModifier = { name: string; price: number; quantity: number };
+export type OrderItem = { id: string; productId: string; productName: string; variantName?: string; quantity: number; unitPrice: number; modifiers: OrderItemModifier[]; note?: string; lineTotal: number };
+export type OrderCustomer = { name: string; phone?: string; address?: string };
+export type OrderStatusHistory = { status: OrderStatus; label: string; at: string; by: string };
+export type Order = { id: string; orderNumber: string; channel: OrderChannel; externalOrderId?: string; status: OrderStatus; createdAt: string; updatedAt: string; customer: OrderCustomer; items: OrderItem[]; subtotal: number; discountAmount: number; shippingFee: number; serviceFee: number; platformFee: number; totalAmount: number; paymentMethod: PaymentMethod; paymentStatus: PaymentStatus; employeeName: string; note?: string; statusHistory: OrderStatusHistory[] };
+export const channelLabels: Record<OrderChannel, string> = { POS: "POS", WEB: "Web Order", GRAB: "GrabFood", SHOPEEFOOD: "ShopeeFood", BEFOOD: "beFood", XANHSM: "Xanh SM" };
+export const orderStatusLabels: Record<OrderStatus, string> = { NEW: "Mới", ACCEPTED: "Đã nhận", PREPARING: "Đang pha chế", READY: "Sẵn sàng", COMPLETED: "Hoàn tất", CANCELLED: "Đã huỷ" };
+export const paymentStatusLabels: Record<PaymentStatus, string> = { PENDING: "Chưa thanh toán", PAID: "Đã thanh toán", FAILED: "Thanh toán lỗi", REFUNDED: "Đã hoàn tiền" };
+export const nextStatus: Partial<Record<OrderStatus, OrderStatus>> = { NEW: "ACCEPTED", ACCEPTED: "PREPARING", PREPARING: "READY", READY: "COMPLETED" };
+export const formatOrderMoney = (value: number) => new Intl.NumberFormat("vi-VN").format(value) + "đ";
+export const canCancel = (status: OrderStatus) => ["NEW", "ACCEPTED", "PREPARING"].includes(status); 
+export const nextStatusLabel: Partial<Record<OrderStatus, string>> = { NEW: "Nhận đơn", ACCEPTED: "Bắt đầu pha", PREPARING: "Sẵn sàng", READY: "Hoàn tất" };
